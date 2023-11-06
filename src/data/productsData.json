@@ -1,0 +1,95 @@
+[
+    {
+        "id": "1",
+        "name": "Apple Watch", 
+        "description": "Discover the innovative features and sleek design of the Apple Watch, a cutting-edge wearable device that seamlessly integrates with your lifestyle.",
+        "price": 22000,
+        "image": "https://i.ibb.co/yRrK84y/watch.jpg"
+    },
+
+    {
+        "id": "2",
+        "name": "TV", 
+        "description": "TV is a ubiquitous medium that entertains and informs, offering a diverse range of programs and channels to cater to various interests and preferences.",
+        "price": 99000,
+        "image": "https://i.ibb.co/2s3gWQq/tv.jpg"
+    },
+    {
+        "id": "3",
+        "name": "Sunglass",
+        "description": "Shop our collection of high-quality sunglasses for a stylish and sophisticated look. Find the perfect pair to protect your eyes and elevate your fashion game.",
+        "price": 300,
+        "image": "https://i.ibb.co/0h679pt/sunglass.jpg"
+    },
+    {
+        "id" : "4",
+        "name": "Shoe",
+        "description":"Discover our exquisite collection of shoes, crafted with the finest materials and designed to elevate your style. Shop now for the perfect pair.",
+        "price":3999,
+        "image": "https://i.ibb.co/3SXFnfY/shoe.jpg"
+    },
+
+    {
+        "id": "5",
+        "name": "Mouse",
+        "description": "Discover a wide range of high-quality computer mice for enhanced productivity and comfort. Shop now for the perfect mouse for your needs.",
+        "price": 499,
+        "image": "https://i.ibb.co/0CvMmVr/mouse.jpg"
+    },
+
+    {
+        "id":"6",
+        "name":"Macbook",
+        "description": "Discover a wide range of high-quality computer mice for enhanced productivity and comfort. Shop now for the perfect mouse for your needs.",
+        "price":190000,
+        "image":"https://i.ibb.co/b6d6tSg/laptop.jpg"
+    },
+
+    {
+        "id":"7",
+        "name":"Iphone 11",
+        "description": "Discover the sleek and powerful Macbook, designed to enhance your productivity and creativity. Experience the ultimate in performance and style.",
+        "price": 120000,
+        "image": "https://i.ibb.co/w6hJqD4/iphone.jpg"
+    },
+
+    {
+        "id": "8",
+        "name": "Camera",
+        "description": "Discover the iconic Polaroid camera, capturing instant memories since 1948. Shop our range of vintage and modern models today.",
+        "price": 22000,
+        "image": "https://i.ibb.co/Y8fwcdm/camera.jpg"
+    },
+
+    {
+        "id": "9",
+        "name": "Body Spray",
+        "description":"Discover our premium body spray collection, crafted with the finest ingredients to leave you feeling refreshed and confident all day.",
+        "price":300,
+        "image":"https://i.ibb.co/FzB6sLF/body-spray.jpg"
+    },
+
+    {
+        "id": "10",
+        "name": "Bag",
+        "description": "Discover a wide range of high-quality bags for every occasion. From stylish handbags to practical backpacks, find your perfect bag today.",
+        "price": 999,
+        "image": "https://i.ibb.co/37VZpqD/bag.jpg"
+    },
+
+    {
+        "id":"11",
+        "name":"Earpods",
+        "description":"Discover the ultimate audio experience with Earpods. Immerse yourself in crystal-clear sound and enjoy unparalleled comfort with our premium earbuds.",
+        "price":16000,
+        "image":"https://i.ibb.co/Q6QCzJn/airpod.jpg"
+    },
+    
+    {
+        "id":"12",
+        "name":"Mugs",
+        "description":"Discover our exquisite collection of high-quality mugs, perfect for enjoying your favorite hot beverages. Shop now and elevate your tea or coffee experience.",
+        "price":400,
+        "image":"https://i.ibb.co/jw6k4JT/mugs.jpg"
+    }
+]
