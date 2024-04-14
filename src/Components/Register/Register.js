@@ -3,6 +3,7 @@ import Navbar from '../Shared/Navbar/Navbar';
 import { useForm } from "react-hook-form"
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
+import CryptoJS from 'crypto-js';
 const Register = () => {
 
     const {registerUser,user,  error} = useAuth();
@@ -15,7 +16,11 @@ const Register = () => {
 
     const {register,handleSubmit,formState: { errors },} = useForm()
 
-    const onSubmit = (data) => registerUser(data.name, data.image, data.email, data.password);
+    const onSubmit = (data) => {
+        const encryptedPassword = CryptoJS.SHA256(data.password).toString();
+        registerUser(data.name, data.image, data.email, encryptedPassword);
+        localStorage.setItem('userCredentials', JSON.stringify({email: data.email, password: encryptedPassword}));
+    }
        
     return (
         <section className="bg-brand bg-brand-container">
