@@ -5,6 +5,7 @@ import googleImage from '../../images/google.png'
 import gitHubImage from '../../images/github.png'
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
+import CryptoJS from "crypto-js";
 
 const Login = () => {
 
@@ -18,8 +19,10 @@ const Login = () => {
     user.email && navigate(from, {replace:true});
 
     const {register,handleSubmit, formState: { errors },} = useForm()
-    const onSubmit = (data) => {
-        login(data.email, data.password)
+     const onSubmit = (data) => {
+        const encryptedPassword = CryptoJS.SHA256(data.password).toString();
+        login(data.email, encryptedPassword);
+        localStorage.setItem('userLoginCredentials', JSON.stringify({email: data.email, password: encryptedPassword}));
         
     }
     return (
