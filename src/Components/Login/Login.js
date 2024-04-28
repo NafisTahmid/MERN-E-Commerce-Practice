@@ -5,7 +5,7 @@ import googleImage from '../../images/google.png'
 import gitHubImage from '../../images/github.png'
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
-import CryptoJS from "crypto-js";
+import bcrypt from 'bcryptjs-react';
 
 const Login = () => {
 
@@ -19,12 +19,30 @@ const Login = () => {
     user.email && navigate(from, {replace:true});
 
     const {register,handleSubmit, formState: { errors },} = useForm()
-     const onSubmit = (data) => {
-        const encryptedPassword = CryptoJS.SHA256(data.password).toString();
-        login(data.email, encryptedPassword);
-        localStorage.setItem('userLoginCredentials', JSON.stringify({email: data.email, password: encryptedPassword}));
-        
+
+    const onSubmit = (data) => {
+    const storedCredentials = JSON.parse(localStorage.getItem('userCredentials')) || [];
+
+    const storedUser = storedCredentials.find(cred => cred.email === data.email);
+
+    if (storedUser) {
+        bcrypt.compare(data.password, storedUser.password, function (err, isMatch) {
+            if (err) {
+                throw err;
+            } else if (!isMatch) {
+                console.log("Password doesn't match");
+            } else {
+                login(data.email, storedUser.password);
+                localStorage.setItem('userLoginCredentials', JSON.stringify({ email: data.email, password: storedUser.password }));
+                console.log('Password matches');
+            }
+        });
+    } else {
+        console.log("User credentials not found.");
     }
+}
+
+
     return (
        <section className='bg-brand bg-brand-container'>
             <Navbar/>
