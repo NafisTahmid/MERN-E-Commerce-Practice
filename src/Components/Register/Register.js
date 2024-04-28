@@ -3,7 +3,7 @@ import Navbar from '../Shared/Navbar/Navbar';
 import { useForm } from "react-hook-form"
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
-import CryptoJS from 'crypto-js';
+import bcrypt from 'bcryptjs-react';
 const Register = () => {
 
     const {registerUser,user,  error} = useAuth();
@@ -17,10 +17,19 @@ const Register = () => {
     const {register,handleSubmit,formState: { errors },} = useForm()
 
     const onSubmit = (data) => {
-        const encryptedPassword = CryptoJS.SHA256(data.password).toString();
+        const encryptedPassword = bcrypt.hashSync(data.password, 10);
         registerUser(data.name, data.image, data.email, encryptedPassword);
-        localStorage.setItem('userCredentials', JSON.stringify({email: data.email, password: encryptedPassword}));
+    
+        // Retrieve existing credentials array or initialize as an empty array
+        const existingCredentials = JSON.parse(localStorage.getItem('userCredentials')) || [];
+    
+        // Add new credentials to the existing array
+        const updatedCredentials = [...existingCredentials, { email: data.email, password: encryptedPassword }];
+    
+        // Store the updated array in local storage
+        localStorage.setItem('userCredentials', JSON.stringify(updatedCredentials));
     }
+    
        
     return (
         <section className="bg-brand bg-brand-container">
